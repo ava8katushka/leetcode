@@ -6,14 +6,22 @@ Natural numbers are split into chunks, due to the number of digits in number.
 - 10 .. 99: have exactly 2 `digits`, `chunkSize` = 90
 - 100 .. 999: have exactly 3 `digits`, `chunkSize` = 900
 - and so on.
-The digit we are searching for would be in one of those chunks.
+
+
+You can notice that the next chunk has exactly `1` more `digit` than the last, and the `chunkSize` increases by `10`.
+The digit we are searching for is located in one of those chunks.
 ![Numbers split into chunks](https://github.com/ava8katushka/leetcode/blob/main/digits_and_chunks.png)
 ### How many digits are in a chunk? 
 This question is really easy to answer: `chunkSize` times `digits` capacity of the chunk.
 ![Digits passsed while travelling from chunk to chunk](https://github.com/ava8katushka/leetcode/blob/main/digits_passed.png)
 ## Approach 1: Search
 ### Intuition
+Let's travel from one chunk to the next, until we get to the chunk where the `digit with number n` is located. 
 ### Algorithm
+1. Start with the first chunk
+2. Iterate to the next chunk if the `digit with number n` is not in this chunk
+3. When we arrive, find the `number` to which the `digit with number n` belongs to
+4. Calculate the `position` of the `digit with number n` in this `number`
 ### Code
 ```python
 def findNthDigit(self, n):
@@ -28,9 +36,9 @@ def findNthDigit(self, n):
             chunkStart += chunkSize
             chunkSize *= 10
 
-        index = (n - digitsPassed - 1) / digits
-        digit = (n - digitsPassed - 1) % digits
+        number = chunkStart + (n - digitsPassed - 1) / digits
+        position = (n - digitsPassed - 1) % digits
         
-        return str(chunkStart + index)[digit]
+        return str(number)[position]
 ```
 ### Complexity Analysis

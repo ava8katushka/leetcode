@@ -1,11 +1,10 @@
 [Nth digit Problem](https://leetcode.com/problems/nth-digit/)
 # Solution
 ## Overview
-## Approach 1: Brute Force
-### Intuition
-### Algorithm
-### Complexity Analysis
-## Approach 2: Search
+![Numbers split into chunks](https://github.com/ava8katushka/leetcode/blob/main/digits_and_chunks.png)
+
+![Digits passsed while travelling from chunk to chunk](https://github.com/ava8katushka/leetcode/blob/main/digits_passed.png)
+## Approach 1: Search
 ### Intuition
 ### Algorithm
 ### Code

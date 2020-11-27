@@ -42,3 +42,11 @@ def findNthDigit(self, n):
         return str(number)[position]
 ```
 ### Complexity Analysis
+- Time complexity: **O(log<sub>10</sub>n)**.
+
+The `digit with number n` > `number` it belongs to. How many digits `number` has? **log<sub>10</sub>n** digits. Algorithm iterates through the chunks until the number of digits in the chunk == number of digits in the `number`.
+
+
+- Space complexity: **O(log<sub>10</sub>n)**.
+
+Algorithm uses the most space when it converts the number to a string. You can reduce space complexity to **O(1)** by extracting the `digit with number n` from the `number` mathematically. 

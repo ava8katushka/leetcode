@@ -18,10 +18,10 @@ This question is really easy to answer: `chunkSize` times `digits` capacity of t
 ### Intuition
 Let's travel from one chunk to the next, until we get to the chunk where the `digit with number n` is located. 
 ### Algorithm
-1. Start with the first chunk
-2. Iterate to the next chunk if the `digit with number n` is not in this chunk
-3. When we arrive, find the `number` to which the `digit with number n` belongs to
-4. Calculate the `position` of the `digit with number n` in this `number`
+1. Start with the first chunk.
+2. Iterate to the next chunk if the `digit with number n` is not in this chunk.
+3. When we arrive, find the `number` to which the `digit with number n` belongs to.
+4. Calculate the `position` of the `digit with number n` in this `number`.
 ### Code
 ```python
 def findNthDigit(self, n):
@@ -42,11 +42,11 @@ def findNthDigit(self, n):
         return str(number)[position]
 ```
 ### Complexity Analysis
-- Time complexity: **O(log<sub>10</sub>n)**.
+- Time complexity : **O(log<sub>10</sub>n)**.
 
-The `n` >= the `number` this digit belongs to. How many digits the `number` has? **log<sub>10</sub>n** digits. Algorithm iterates through the chunks until the number of digits in the chunk == number of digits in the `number`.
+The `n` >= the `number` this digit belongs to. How many digits the `number` has? Not more than **log<sub>10</sub>n** digits. Algorithm iterates through the chunks until the number of digits in the chunk == number of digits in the `number`. So the number of iterations in while cycle <= **log<sub>10</sub>n**.
 
 
-- Space complexity: **O(log<sub>10</sub>n)**.
+- Space complexity : **O(log<sub>10</sub>n)**.
 
-Algorithm uses the most space when it converts the number to a string. You can reduce space complexity to **O(1)** by extracting the `digit with number n` from the `number` mathematically. 
+Algorithm uses the most space when it converts the number to a string. Length of the string <= **log<sub>10</sub>n**. You can reduce space complexity to **O(1)** by extracting the `digit with number n` from the `number` mathematically. 
